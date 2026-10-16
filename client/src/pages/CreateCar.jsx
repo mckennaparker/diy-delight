@@ -1,12 +1,19 @@
-import React from 'react'
-import '../App.css'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import CarForm from '../components/CarForm'
+import { createCar } from '../services/api'
 
-const CreateCar = () => {
-
+const CreateCar = ({ title }) => {
+    const navigate = useNavigate()
+    useEffect(() => { document.title = title }, [title])
     return (
-        <div>
-
-        </div>
+        <CarForm
+            submitLabel="Save my build"
+            onSave={async (car) => {
+                const savedCar = await createCar(car)
+                navigate(`/customcars/${savedCar.id}`)
+            }}
+        />
     )
 }
 

@@ -1,19 +1,16 @@
-import React from 'react'
-import '../App.css'
+import { Link, NavLink } from 'react-router-dom'
 import '../css/Navigation.css'
 
 const Navigation = () => {
     return (
-        <nav>
+        <nav className="site-nav">
             <ul>
-                <li><h1>Bolt Bucket 🏎️</h1></li>
+                <li><Link className="brand" to="/"><img src="/lightning.png" alt="" />BOLT BUCKET<span> GARAGE</span></Link></li>
             </ul>
-
             <ul>
-                <li><a href='/' role='button'>Customize</a></li>
-                <li><a href='/customcars' role='button'>View Cars</a></li>
+                <li><NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Build a car</NavLink></li>
+                <li><NavLink to="/customcars" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>The garage</NavLink></li>
             </ul>
-            
         </nav>
     )
 }
