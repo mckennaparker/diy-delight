@@ -51,7 +51,7 @@ const CarDetails = ({ title }) => {
                         <p className="muted">{car.model} · Built {new Date(car.created_at).toLocaleDateString()}</p>
                         <div className="details-total">
                             <div><span>Build total</span><strong>{formatMoney(car.total_price)}</strong></div>
-                            <div><span>Budget</span><strong>{formatMoney(car.budget)}</strong></div>
+                            <div><span>Budget </span><strong>{formatMoney(car.budget)}</strong></div>
                             <p>{formatMoney(car.budget - car.total_price)} left in your budget</p>
                         </div>
                         <ul className="spec-list">
